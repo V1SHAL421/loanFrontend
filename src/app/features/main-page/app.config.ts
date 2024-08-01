@@ -2,7 +2,7 @@ import { ApplicationConfig, enableProdMode, provideZoneChangeDetection } from '@
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { environment } from '../environments/environment';
+import { environment } from '../../../environments/environment';
 
 if (environment.production) {
   enableProdMode()
