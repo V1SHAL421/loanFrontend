@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { AppComponent } from '../core/main-page/app.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -20,4 +21,17 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+});
+
+it(`should have the 'loanAppFrontend' title`, () => {
+  const fixture = TestBed.createComponent(HomeComponent);
+  const app = fixture.componentInstance;
+  expect(app.title).toEqual('loanAppFrontend')
+})
+
+it('should render title', () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  fixture.detectChanges();
+  const compiled = fixture.nativeElement as HTMLElement;
+  expect(compiled.querySelector('h1')?.textContent).toContain('Hello, loanAppFrontend');
 });
