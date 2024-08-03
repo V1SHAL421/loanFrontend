@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* This style overrides everything */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color:light-dark(#b0e0e6, #663399);
+}
+
+:root {
+    color-scheme: light dark;
+}
+
+li, a, button {
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: light-dark( #191970, #f0f8ff);
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Will push left and right components to far edges and items in middle evenly spread between the two*/
+    align-items: center;
+    padding: 30px 10px;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
