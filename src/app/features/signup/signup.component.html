@@ -1,0 +1,13 @@
+<form [formGroup]="signUpForm" (submit)="submitForm()">
+    <label for="email">Email</label>
+    <input id="email" type="email" formControlName="email" placeholder="example@email.com">
+
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password" placeholder="********">
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" placeholder="********">
+
+    <button type="submit" class="primary" [disabled]="loading">Sign Up</button>
+
+</form>

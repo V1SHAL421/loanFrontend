@@ -30,7 +30,6 @@ export class LoginComponent {
   async submitForm(): Promise<void> {
     try {
       this.loading = true
-      const email = this.signInForm.value.email as string
       const { error } = await this.supabase.signIn(
         this.signInForm.value.email ?? '',
         this.signInForm.value.password ?? ''
