@@ -8,6 +8,7 @@ import {
     User
 } from '@supabase/supabase-js'
 import { environment } from '../../../environments/environment'
+import { asyncScheduler, from, scheduled } from 'rxjs'
 
 @Injectable({
     providedIn: 'root', // Ensures it is available globally
@@ -33,19 +34,27 @@ authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void)
 }
 
 signIn(email: string, password: string) {
-    return this.supabase.auth.signInWithPassword({
-        email, password
+    const promise = this.supabase.auth.signInWithPassword({
+        email,
+        password,
     })
+    return scheduled(promise, asyncScheduler);
 }
 
-signUp(email: string, password: string) {
-    return this.supabase.auth.signUp({
-        email, password
+signUp(email: string, username: string, password: string) {
+    const promise = this.supabase.auth.signUp({
+        email,
+        password,
+        options: {
+            data: {
+                username,
+            }
+        }
     })
+    return scheduled(promise, asyncScheduler);
 }
 
 signOut() {
     return this.supabase.auth.signOut()
 }
-
 }

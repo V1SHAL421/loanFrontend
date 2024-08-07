@@ -1,9 +1,23 @@
-<form [formGroup]="signInForm" (submit)="submitForm()">
+@if (errorMessage) {
+    <div class="errorStyle"> {{ errorMessage }}</div>
+}
+
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="formStyle">
+    <div class="formContent">
     <label for="email">Email</label>
+</div>
+    <div class="formContent">
     <input id="email" type="email" formControlName="email" placeholder="example@email.com">
+</div>
 
+<div class="formContent">
     <label for="password">Password</label>
+</div>
+    <div class="formContent">
     <input id="password" type="password" formControlName="password" placeholder="********">
+</div>
 
+<div class="formContent">
     <button type="submit" class="primary" [disabled]="loading">Log In</button>
+</div>
 </form>
