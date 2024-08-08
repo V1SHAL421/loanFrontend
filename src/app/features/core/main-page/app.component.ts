@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "../../../layouts/header/header.component";
 import { HomeComponent } from '../../home/home.component';
@@ -16,18 +16,31 @@ import { Session } from '@supabase/supabase-js';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   // This will cause an error because TS is not certain that supabase has been initialized
   // Hence, we need to use OnInit lifecycle hook to set up session after component construction
   // is complete.
   // private session: Session | null
-  constructor(private readonly supabase: SupabaseService) {}
+  supabaseService = inject(SupabaseService)
 
-  // ngOnInit(): void {
-  //   this.session = this.supabase.session
-  // }
+  ngOnInit(): void {
+    this.supabaseService.supabase.auth.onAuthStateChange((event, session) => {
+      // console.log('!!', event, session)
+      if (event == 'SIGNED_IN') {
+        this.supabaseService.currentUser.set({
+          email: session?.user.email!,
+          username: 
+            session?.user.identities?.at(0)?.identity_data?.['username']
+      });
+      } else if (event == 'SIGNED_OUT') {
+        this.supabaseService.currentUser.set(null)
+      }
+    })
+  }
 
-
+  signOut(): void {
+    this.supabaseService.signOut()
+  }
 
 }
 

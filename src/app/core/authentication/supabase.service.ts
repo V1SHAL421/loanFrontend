@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, signal } from '@angular/core'
 import {
     AuthChangeEvent,
     AuthSession,
@@ -14,8 +14,9 @@ import { asyncScheduler, from, scheduled } from 'rxjs'
     providedIn: 'root', // Ensures it is available globally
 })
 export class SupabaseService {
-    private supabase: SupabaseClient
+    supabase: SupabaseClient
     _session: AuthSession | null = null
+    currentUser = signal<{email: string; username: string} | null>(null);
 
 
 constructor() {
@@ -55,6 +56,6 @@ signUp(email: string, username: string, password: string) {
 }
 
 signOut() {
-    return this.supabase.auth.signOut()
+    this.supabase.auth.signOut()
 }
 }
