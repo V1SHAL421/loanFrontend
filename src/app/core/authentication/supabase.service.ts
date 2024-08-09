@@ -15,7 +15,6 @@ import { asyncScheduler, from, scheduled } from 'rxjs'
 })
 export class SupabaseService {
     supabase: SupabaseClient
-    _session: AuthSession | null = null
     currentUser = signal<{email: string; username: string} | null>(null);
 
 
@@ -23,12 +22,6 @@ constructor() {
     this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
 }
 
-get session() {
-    this.supabase.auth.getSession().then(({ data }) => {
-        this._session = data.session
-    })
-    return this._session
-}
 
 authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
     return this.supabase.auth.onAuthStateChange(callback)
@@ -58,4 +51,13 @@ signUp(email: string, username: string, password: string) {
 signOut() {
     this.supabase.auth.signOut()
 }
+
+async refreshToken(): Promise<boolean> {
+    const {error} = await this.supabase.auth.refreshSession();
+    if (error) {
+        console.error("Refresh token error occurred:", error.message)
+        return false
+    }
+    return true
+    }
 }
