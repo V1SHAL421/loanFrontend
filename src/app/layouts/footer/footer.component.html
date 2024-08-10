@@ -3,6 +3,10 @@
     <div class="bottom-align">
         <footer>
             <p><a href="mailto:vishalmkumar3@gmail.com?subject=Feedback&body=Hi Vishal,">Email: vishalmkumar3&#64;gmail.com</a></p>
+            @if (supabaseService.currentUser()) {
+                <p><span (click)="signOut()"> Sign Out </span></p>
+            }
+            
             <nav>
                 <ul>
                     <li>

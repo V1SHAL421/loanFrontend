@@ -38,9 +38,5 @@ export class AppComponent implements OnInit {
     })
   }
 
-  signOut(): void {
-    this.supabaseService.signOut()
-  }
-
 }
 

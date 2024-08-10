@@ -1,16 +1,4 @@
-@if (supabaseService.currentUser() == null) {
-    <div>
-        <a routerLink="/login">Log In</a>
-        <a routerLink="/signup">Sign Up</a>
-    </div>
-}
 
-@if (supabaseService.currentUser()) {
-    <div>
-        {{supabaseService.currentUser()?.username}}
-        <span (click)="signOut()"> Sign Out </span>
-    </div>
-}
 
 <app-header></app-header>
 <app-footer></app-footer>

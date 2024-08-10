@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SupabaseService } from '../../core/authentication/supabase.service';
 
 @Component({
   selector: 'app-footer',
@@ -10,5 +11,9 @@ import { RouterModule } from '@angular/router';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+  supabaseService = inject(SupabaseService)
 
+  signOut(): void {
+    this.supabaseService.signOut()
+  }
 }
