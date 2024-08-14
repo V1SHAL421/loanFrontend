@@ -8,8 +8,9 @@ import { User } from '../shared/user.interface';
 })
 
 export class UserService {
-  private apiUrl = 'http://localhost:8080/user'
+  private apiUrl = 'http://springboot_loan_app_backend-web-1:8080/user'
   http = inject(HttpClient)
+  
 
   getUsers(): Observable<User[]> {
     const promise = this.http.get<User[]>(`${this.apiUrl}/users`)

@@ -1,6 +1,9 @@
 #  Stage 1: Compile and Build Angular Codebase
 FROM node:latest as build
 
+# Install ping for troubleshooting
+RUN apt-get update && apt-get install -y iputils-ping
+
 # Set working directory
 WORKDIR /app
 
