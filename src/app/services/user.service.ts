@@ -2,13 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, asyncScheduler, scheduled } from 'rxjs';
 import { User } from '../shared/user.interface';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserService {
-  private apiUrl = 'http://springboot_loan_app_backend-web-1:8080/user'
+  // private apiUrl = 'http://localhost:8080/user'
+  private apiUrl = `${environment.API_URL}/user`
+  // 172.22.0.2 172.19.0.2 
   http = inject(HttpClient)
   
 

@@ -1,1 +1,3 @@
-<p>loan works!</p>
+<div class="loanDetails" *ngFor="let loan of loans">
+    <p> £{{ loan.amount }}-{{ loan.loanPeriod }} months-{{ loan.user.name }}-{{ loan.user.age }} years old</p>
+</div>
