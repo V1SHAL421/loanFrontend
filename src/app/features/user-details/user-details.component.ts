@@ -4,11 +4,13 @@ import { UserService } from '../../services/user.service';
 import { Observable, Subscription, catchError, of } from 'rxjs';
 import { User } from '../../shared/user.interface';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card'
+
 
 @Component({
   selector: 'app-user-details',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, MatCardModule],
   providers: [UserService],
   templateUrl: './user-details.component.html',
   styleUrl: './user-details.component.css'

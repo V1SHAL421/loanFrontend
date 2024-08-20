@@ -1,5 +1,10 @@
 <div class="userDetails" *ngFor="let user of users">
-    <p>{{ user.name }} - {{user.age }}</p>
+    <mat-card style="display: flex; align-items: center; justify-content: center; background-color: rgb(127, 165, 255);">
+        <mat-card-header>{{ user.name }}</mat-card-header>
+        <mat-card-content>This user is {{ user.age }} years old</mat-card-content>
+        <img mat-card-sm-image src="assets/profile_picture.jpg">
+    </mat-card>
+    <!-- <p>{{ user.name }} - {{user.age }}</p> -->
     <!-- [user]="user" -->
 </div>
 
