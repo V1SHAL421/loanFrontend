@@ -4,11 +4,12 @@ import { Loan } from '../../shared/loan.interface';
 import { LoanService } from '../../services/loan.service';
 import { Observable, catchError, of } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-loan',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, MatCardModule],
   providers: [LoanService],
   templateUrl: './loan.component.html',
   styleUrl: './loan.component.css'
