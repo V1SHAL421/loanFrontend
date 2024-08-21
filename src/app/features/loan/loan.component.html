@@ -1,7 +1,7 @@
 <div class="loanDetails" *ngFor="let loan of loans">
     <mat-card class="flex align-center justify-center bg-blue-300" style="display: flex; align-items: center; justify-content: center; background-color: rgb(127, 165, 255); margin: 3vh;">
         <mat-card-header style="font-size: 2em;">{{ loan.user.name }}</mat-card-header>
-        <mat-card-content>This user has loaned this amount of money: £{{ loan.amount }} for this many years: {{ loan.loanPeriod }}</mat-card-content>
+        <mat-card-content>This user has loaned this amount of money: £{{ loan.amount }} for this many months: {{ loan.loanPeriod }}</mat-card-content>
         <img mat-card-sm-image src="assets/profile_picture.jpg">
     </mat-card>
 </div>
