@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from "../../../layouts/footer/footer.component";
 import { SupabaseService } from '../../../core/authentication/supabase.service';
-import { Session } from '@supabase/supabase-js';
 
 @Component({
   selector: 'app-root',

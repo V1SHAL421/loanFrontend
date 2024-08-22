@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { Observable, Subscription, catchError, of } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 import { User } from '../../shared/user.interface';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card'

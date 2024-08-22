@@ -1,11 +1,9 @@
 import { Injectable, signal } from '@angular/core'
 import {
     AuthChangeEvent,
-    AuthSession,
     createClient,
     Session,
-    SupabaseClient,
-    User
+    SupabaseClient
 } from '@supabase/supabase-js'
 import { environment } from '../../../environments/environment'
 import { asyncScheduler, from, scheduled } from 'rxjs'
