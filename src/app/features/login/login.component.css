@@ -6,17 +6,21 @@
 
 .formStyle {
     background-color: beige;
-    margin: auto;
-    width: 50%;
     border-color: darkblue;
     border-radius: 4rem;
     border-block-width: 10px;
     justify-content: center;
+    align-items: center;
+    margin: 10%;
 }
 
 .formContent {
+    display: flex;
     margin: auto;
     width: 50%;
+    justify-content: center;
+    align-items: center;
+    overflow-wrap: normal;
     font-family: "JetBrains Mono",monospace;
 }
 

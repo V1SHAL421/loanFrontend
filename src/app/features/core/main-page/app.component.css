@@ -14,4 +14,5 @@
     display: grid;
     grid-template-rows: auto 1fr auto;
     overflow-y: auto;
+    background-image: url(./../../../../assets/finance_background.png);
 }
