@@ -54,6 +54,8 @@
   white-space: nowrap;
   will-change: box-shadow,transform;
   font-size: 18px;
+  font-size: 1.5em;
+  margin: 5%;
 }
 
 .button-30:focus {
