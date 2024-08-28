@@ -30,6 +30,15 @@
         <li><a routerLink="signup">Sign Up</a></li>
     </ul>
 </nav>
+<nav>
+    <ul>
+    @if (supabaseService.currentUser()) {
+        <p><span (click)="signOut()"> Sign Out </span></p>
+    }
+    </ul>
+</nav>
+
+
 
 
 <!-- <button onclick="document.documentElement.classList.toggle('dark')">Dark Mode</button> -->
